@@ -7,14 +7,14 @@ from lightning.pytorch import LightningModule
 import shutil
 import wandb
 
-from LatentDiffusionModel import NoVAEDiffusionModel
+from medisy.core_components.LatentDiffusionModel import NoVAEDiffusionModel
 
 import torch
 from torch.utils.data import DataLoader
 import numpy as np
 import random
 from utils import compute_snr, AverageMeter
-from LatentDataset import PickleFolder
+from medisy.core_components.LatentDataset import PickleFolder
 
 def collate_fn(examples):
     targets = [example["target"] for example in examples]
