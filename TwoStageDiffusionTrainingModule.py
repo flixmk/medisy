@@ -34,7 +34,7 @@ class LatentDiffusionModel(LightningModule):
                 class_prompts=["CNV", "DME", "DRUSEN", "NORMAL"],
                 strategy_diff_model="default", 
                 text_encoder_lr=1e-4, 
-                lr_unet=7.5e-6,
+                unet_lr=7.5e-6,
                 samples_per_class_train=None,
                 samples_per_class_val=None,
                 total_samples_train=None,
@@ -53,7 +53,7 @@ class LatentDiffusionModel(LightningModule):
         self.samples_per_class_train = samples_per_class_train
         self.samples_per_class_val = samples_per_class_val
         self.total_samples_train = total_samples_train
-        self.lr_unet = lr_unet
+        self.lr_unet = unet_lr
         self.lr_text_encoder = text_encoder_lr
         self.strategy_diff_model = strategy_diff_model
         self.use_linear_lr_scheduler = use_linear_lr_scheduler
@@ -164,7 +164,7 @@ class LatentDiffusionModel(LightningModule):
         self.log("avg_val_loss", self.average_meter_val.avg.item(), logger=True)
 
     def train_dataloader(self):
-        if self.samples_per_class is not None:
+        if self.samples_per_class_train is not None:
             self.pickle_train = PickleFolder(self.train_path, samples_per_class=self.samples_per_class_train)
         else:
             self.pickle_train = PickleFolder(self.train_path, total_samples=self.total_samples_train)

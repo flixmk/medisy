@@ -14,19 +14,24 @@ class MyLightningCLI_TI(LightningCLI):
         parser.set_defaults({
             "model.strategy_diff_model": "textual_inversion",
             "model.model_name": self.model_name,
+
             "model.text_encoder_lr": 1e-3,
-            "model.samples_per_class": 500,
-            "model.total_samples": None,
-            "model.snr_gamma": None,
+
+            "model.samples_per_class_train": None, # samples_per_class_train and samples_per_class_val cannot be None at the same time; define one of them depending on your needs
+            "model.total_samples_train": 200,
+            "model.samples_per_class_val": 200,
+
+            "model.snr_gamma": None, # suggested value: 5.0 if you want to use SNR-reweighted loss
             "model.use_linear_lr_scheduler": True,
-            "model.batch_size": 1,
-            "model.train_path": "/home/flix/Desktop/Masterthesis/medisy/medisy/diffusion_modules/latents/train",
-            "model.val_path": "/home/flix/Desktop/Masterthesis/medisy/medisy/diffusion_modules/latents/val",
+            "model.batch_size": 1, # 1 just for testing
+
+            "model.train_path": "...",
+            "model.val_path": "...",
+            "model.class_prompts": [...], # format: ["class1", "class2", "class3", "class4"]
         })
     def instantiate_trainer(self, **kwargs):
         trainer = super().instantiate_trainer()
         # trainer.logger = WandbLogger(name=self.model_name) # if you want to use wandb, you need to set your project name here
-        trainer.devices = 1
         return trainer
     
 class MyLightningCLI_GPP(LightningCLI):
@@ -35,11 +40,24 @@ class MyLightningCLI_GPP(LightningCLI):
         parser.set_defaults({
             "model.strategy_diff_model": "gpp",
             "model.model_name": self.model_name,
+
+            "model.unet_lr": 1e-5,
+
+            "model.samples_per_class_train": None, # samples_per_class_train and samples_per_class_val cannot be None at the same time; define one of them depending on your needs
+            "model.total_samples_train": 200,
+            "model.samples_per_class_val": 200,
+
+            "model.snr_gamma": None, # suggested value: 5.0 if you want to use SNR-reweighted loss
+            "model.use_linear_lr_scheduler": True,
+            "model.batch_size": 1, # 1 just for testing
+
+            "model.train_path": "...",
+            "model.val_path": "...",
+            "model.class_prompts": [...], # format: ["class1", "class2", "class3", "class4"]
         })
     def instantiate_trainer(self, **kwargs):
         trainer = super().instantiate_trainer()
-        trainer.logger = WandbLogger(name=self.model_name) # if you want to use wandb, you need to set your project name here
-        trainer.devices = 1
+        # trainer.logger = WandbLogger(name=self.model_name) # if you want to use wandb, you need to set your project name here
         return trainer
     
 def run_training(cli_class):
@@ -52,7 +70,7 @@ def run_training(cli_class):
                           "val_check_interval": 1000, 
                           "check_val_every_n_epoch":None,
                           "accelerator": 'gpu',
-                          "precision": 'bf16-mixed',},
+                          "precision": 'bf16',},
         save_config_kwargs={"overwrite": True},
     )
     print(ModelSummary(cli.model, max_depth=2))

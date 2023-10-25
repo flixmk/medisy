@@ -180,7 +180,7 @@ class NoVAEDiffusionModel(nn.Module):
         if self.strategy == "default":
             return self.multi_modal_strings(string)
         elif self.strategy == "gpp":
-            return self.general_pretraining_phase(string)
+            return self.general_pretraining_phase()
         elif self.strategy == "text_encoder_full":
             return self.multi_modal_strings(string)
         elif self.strategy == "textual_inversion":

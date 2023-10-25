@@ -99,7 +99,7 @@ def precompute_latents_pickle(vae, train_dataloader, val_dataloader, classes):
         target = batch["targets"][0]
             # save latent distribution
         with open(f'{PATH_TO_SAVED_DATA}/train/{target}/{target}-({counter}).pkl', 'wb') as output:
-            pickle.dump(latent_dist, output, pickle.HIGHEST_PROTOCOL)
+            pickle.dump(latent_dist, output, pickle.DEFAULT_PROTOCOL)
         counter += 1
 
     counter = 0
@@ -112,7 +112,8 @@ def precompute_latents_pickle(vae, train_dataloader, val_dataloader, classes):
         target = batch["targets"][0]
             # save latent distribution
         with open(f'{PATH_TO_SAVED_DATA}/val/{target}/{target}-({counter}).pkl', 'wb') as output:
-            pickle.dump(latent_dist, output, pickle.HIGHEST_PROTOCOL)
+            pickle.dump(latent_dist, output, pickle.DEFAULT_PROTOCOL) # use second to highest protocol
+
         counter += 1
 
 if __name__ == "__main__":
