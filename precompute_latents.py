@@ -10,9 +10,9 @@ from diffusers import AutoencoderKL
 import pickle
 import os
 
-PATH_TO_TRAINDATA = "/home/flix/Documents/RetinalOCT_Dataset/train_few_shot_external"
-PATH_TO_VALDATA = "/home/flix/Documents/RetinalOCT_Dataset/val_few_shot_external"
-PATH_TO_SAVED_DATA = "/home/flix/Documents/RetinalOCT_Dataset/TESTING/external_latents"
+PATH_TO_TRAINDATA = "..."
+PATH_TO_VALDATA = "..."
+PATH_TO_SAVED_DATA = "..."
 SIZE = 498
 
 class CustomImageFolder(ImageFolder):
