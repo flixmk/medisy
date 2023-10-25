@@ -1,0 +1,46 @@
+{string}
+An OCT scan of {string}
+A scan using OCT technology depicting the disease: {string}
+Image that shows an example of {string}
+Picture that shows an example of the condition {string}
+An image of {string}
+A clinical image presenting {string}
+This OCT scan illustrates {string}
+An image showcasing the condition known as {string}
+A visual representation of {string}
+Photographic depiction of {string}
+An example of an OCT scan showing {string}
+A detailed OCT scan showing the disease: {string}
+This picture illustrates the characteristics of {string}
+Visual documentation of {string} via OCT imaging
+An OCT-captured representation of {string}
+Photographic evidence of the disease called {string}
+An OCT image highlighting {string}
+A high-resolution OCT image depicting {string}
+An in-depth visual representation of {string} via OCT scan
+Graphic evidence of the condition known as {string} using OCT technology
+A diagnostic OCT image of {string}
+OCT scan revealing the condition: {string}
+A medical illustration of {string} via OCT
+OCT imagery showcasing the disease: {string}
+A depiction of {string} through OCT scanning
+OCT scan used to analyze {string}
+A 3D OCT image of {string}
+An OCT scan for evaluating {string}
+OCT scan: a detailed view of {string}
+A cross-sectional OCT image of {string}
+The OCT scan provides insight into {string}
+A professional OCT analysis of {string}
+OCT scan for monitoring {string}
+A patient's OCT scan showing {string}
+OCT scan for diagnostic assessment of {string}
+An OCT image that reveals characteristics of {string}
+A comprehensive view of {string} through OCT imaging
+OCT scan: a non-invasive examination of {string}
+A high-definition OCT scan of {string}
+An OCT scan essential for detecting {string}
+A real-time OCT image of {string}
+OCT scan for therapeutic evaluation of {string}
+An OCT image that provides a detailed view of {string}
+A specialized OCT scan for {string}
+OCT technology used to visualize {string}
